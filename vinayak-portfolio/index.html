@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Portfolio of Dasarla Vinayak — CSE student focused on Python, SQL, data engineering, backend development, and machine learning." />
+  <title>Dasarla Vinayak | Portfolio</title>
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: #0d1a2b;
+      --panel2: #101f33;
+      --text: #eaf2ff;
+      --muted: #9fb0c6;
+      --accent: #6ee7ff;
+      --accent2: #8b7cff;
+      --line: rgba(255, 255, 255, .10);
+      --shadow: 0 20px 60px rgba(0, 0, 0, .28);
+      --max: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(110, 231, 255, .09), transparent 28%),
+        radial-gradient(circle at 85% 15%, rgba(139, 124, 255, .10), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none
+    }
+
+    .wrap {
+      width: min(calc(100% - 40px), var(--max));
+      margin: auto
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: rgba(7, 17, 31, .72);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav .inner {
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: .2px
+    }
+
+    .brand span {
+      color: var(--accent)
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    .navlinks a:hover {
+      color: var(--text)
+    }
+
+    .hero {
+      padding: 100px 0 76px
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 34px;
+      align-items: center
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .03);
+      color: var(--accent);
+      font-size: .82rem;
+      margin-bottom: 22px
+    }
+
+    h1 {
+      font-size: clamp(3.2rem, 7vw, 5.8rem);
+      line-height: .98;
+      letter-spacing: -.055em;
+      margin-bottom: 22px
+    }
+
+    .grad {
+      background: linear-gradient(100deg, var(--accent), #ffffff 40%, #b9b2ff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent
+    }
+
+    .hero p {
+      font-size: 1.12rem;
+      color: var(--muted);
+      max-width: 690px
+    }
+
+    .cta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 30px
+    }
+
+    .btn {
+      padding: 12px 17px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      transition: .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 650
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      border-color: rgba(110, 231, 255, .45)
+    }
+
+    .btn.primary {
+      background: linear-gradient(135deg, rgba(110, 231, 255, .18), rgba(139, 124, 255, .20));
+      border-color: rgba(110, 231, 255, .28)
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, .05), rgba(255, 255, 255, .025));
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      box-shadow: var(--shadow)
+    }
+
+    .profile {
+      padding: 24px
+    }
+
+    .profile .avatar {
+      width: 82px;
+      height: 82px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #06111c;
+      font-weight: 900;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .profile .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .profile h3 {
+      font-size: 1.25rem;
+      margin-bottom: 4px
+    }
+
+    .profile .muted {
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 18px
+    }
+
+    .stat {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, .025)
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.3rem
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .78rem
+    }
+
+    section {
+      padding: 78px 0
+    }
+
+    .section-title {
+      font-size: 2rem;
+      letter-spacing: -.03em;
+      margin-bottom: 10px
+    }
+
+    .section-lead {
+      color: var(--muted);
+      max-width: 730px;
+      margin-bottom: 28px
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px
+    }
+
+    .project,
+    .experience,
+    .cert,
+    .skill {
+      padding: 23px
+    }
+
+    .project h3,
+    .experience h3,
+    .cert h3,
+    .skill h3 {
+      margin-bottom: 8px
+    }
+
+    .project p,
+    .experience p,
+    .cert p,
+    .skill p {
+      color: var(--muted);
+      font-size: .95rem
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px
+    }
+
+    .tag {
+      font-size: .76rem;
+      padding: 6px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: #c9d6e8;
+      background: rgba(255, 255, 255, .025)
+    }
+
+    .project .links {
+      display: flex;
+      gap: 10px;
+      margin-top: 17px;
+      font-size: .9rem
+    }
+
+    .project .links a {
+      color: var(--accent)
+    }
+
+    .timeline {
+      position: relative;
+      margin-top: 12px;
+      padding-left: 18px
+    }
+
+    .timeline:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 4px;
+      bottom: 4px;
+      width: 2px;
+      background: linear-gradient(var(--accent), rgba(139, 124, 255, .25))
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 22px 22px
+    }
+
+    .timeline-item:before {
+      content: "";
+      position: absolute;
+      left: -5px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(110, 231, 255, .09)
+    }
+
+    .date {
+      color: var(--accent);
+      font-size: .82rem;
+      font-weight: 700;
+      margin-bottom: 4px
+    }
+
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px
+    }
+
+    .skill-list {
+      margin-top: 13px;
+      color: #c9d6e8;
+      font-size: .94rem
+    }
+
+    .skill-list span {
+      display: inline-block;
+      margin: 0 8px 8px 0;
+      padding: 7px 10px;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--line)
+    }
+
+    .contact {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 28px
+    }
+
+    footer {
+      padding: 35px 0 55px;
+      color: var(--muted);
+      font-size: .9rem
+    }
+
+    .small-links {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 12px
+    }
+
+    .small-links a {
+      color: #cfe0f5
+    }
+
+    @media(max-width:900px) {
+
+      .hero-grid,
+      .grid-3,
+      .grid-2,
+      .skills-wrap,
+      .contact {
+        grid-template-columns: 1fr
+      }
+
+      .navlinks {
+        display: none
+      }
+
+      .hero {
+        padding-top: 70px
+      }
+
+      .profile {
+        max-width: 540px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <div class="wrap inner">
+      <a class="brand" href="#top">Vinayak<span>.</span></a>
+      <div class="navlinks">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">CSE Student · Python · SQL · Data · Backend · ML</div>
+          <h1>Building practical, <span class="grad">data-driven software.</span></h1>
+          <p>
+            I'm Dasarla Vinayak, a Computer Science Engineering student focused on Python,
+            SQL, data engineering, backend development, and machine learning. I enjoy turning
+            real problems into useful software, analytics, and intelligent applications.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#projects">View Projects ↗</a>
+            <a class="btn" href="https://github.com/vinayak-30-debug" target="_blank">GitHub ↗</a>
+            <a class="btn" href="https://www.linkedin.com/in/vinayakdasarla/" target="_blank">LinkedIn ↗</a>
+          </div>
+        </div>
+        <aside class="card profile">
+          <div class="avatar"><img src="avatar.jpg" alt="Dasarla Vinayak" /></div>
+          <h3>Dasarla Vinayak</h3>
+          <div class="muted">Hyderabad, India · Graduating 2027</div>
+          <div class="stats">
+            <div class="stat"><strong>7.67</strong><span>CGPA / 10</span></div>
+            <div class="stat"><strong>3</strong><span>Internships</span></div>
+
+
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <h2 class="section-title">About me</h2>
+        <p class="section-lead">
+          My current direction sits at the intersection of data and software engineering:
+          strong Python and SQL fundamentals, analytics and machine learning, plus backend
+          systems and APIs.
+        </p>
+        <div class="grid-3">
+          <div class="card project">
+            <h3>Data & Analytics</h3>
+            <p>Exploratory analysis, data cleaning, visualization, business intelligence, and Power BI dashboards.</p>
+          </div>
+          <div class="card project">
+            <h3>Backend & APIs</h3>
+            <p>Building application backends with FastAPI, REST APIs, databases, and practical Python systems.</p>
+          </div>
+          <div class="card project">
+            <h3>ML & AI</h3>
+            <p>Classification, NLP, TF-IDF, scikit-learn workflows, and intelligent applications connected to real use
+              cases.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <h2 class="section-title">Featured projects</h2>
+        <p class="section-lead">A few projects that best represent my current direction.</p>
+        <div class="grid-3">
+          <article class="card project">
+            <h3>🌍 JanSetu — Bharat Benefits Navigator</h3>
+            <p>AI-powered platform designed to help citizens discover and access relevant government welfare schemes.
+            </p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">MongoDB</span><span
+                class="tag">Gemini</span><span class="tag">FAISS</span>
+            </div>
+            <div class="links"><a href="https://github.com/vinayak-30-debug/JanSetu" target="_blank">Repository →</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <h3>🌱 EcoPulse — Household Sustainability</h3>
+            <p>Household sustainability dashboard tracking electricity, water, and waste, with data analysis and
+              ML-based insights.</p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Scikit-learn</span><span
+                class="tag">Pandas</span><span class="tag">OCR</span>
+            </div>
+            <div class="links"><a href="https://github.com/vinayak-30-debug/EcoPulse" target="_blank">Repository →</a>
+            </div>
+          </article>
+
+          <article class="card project">
+            <h3>🛡️ Phishing Email Detection</h3>
+            <p>NLP/ML classifier using TF-IDF and scikit-learn, benchmarked across Logistic Regression, Naive Bayes, and
+              Random Forest.</p>
+            <div class="tags">
+              <span class="tag">TF-IDF</span><span class="tag">Scikit-learn</span><span class="tag">NLP</span><span
+                class="tag">Python</span>
+            </div>
+            <div class="links"><a href="https://github.com/vinayak-30-debug/Phishing-Email-Detection"
+                target="_blank">Repository →</a></div>
+          </article>
+
+          <article class="card project">
+            <h3>📁 Smart File Organizer</h3>
+            <p>Desktop automation app with recursive scanning, custom categories, dry-run previews, logging,
+              preferences, and testing.</p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Tkinter</span><span class="tag">Automation</span><span
+                class="tag">Unit Testing</span>
+            </div>
+            <div class="links"><a href="https://github.com/vinayak-30-debug/smart-file-organizer"
+                target="_blank">Repository →</a></div>
+          </article>
+
+          <article class="card project">
+            <h3>🔐 Password Strength Analyzer</h3>
+            <p>Password security project covering complexity scoring, entropy estimation, secure generation, and salted
+              scrypt hashing.</p>
+            <div class="tags">
+              <span class="tag">Python</span><span class="tag">Security</span><span class="tag">scrypt</span><span
+                class="tag">Cryptography</span>
+            </div>
+            <div class="links"><a href="https://github.com/vinayak-30-debug/Password-Strength-Analyzer"
+                target="_blank">Repository →</a></div>
+          </article>
+
+          <article class="card project">
+            <h3>🏛️ JanSetu — React Platform</h3>
+            <p>A citizen-facing web platform helping users discover and access state and central government welfare
+              schemes.</p>
+            <div class="tags">
+              <span class="tag">React</span><span class="tag">Web Development</span><span class="tag">Public
+                Services</span>
+            </div>
+            <div class="links"><a href="https://github.com/vinayak-30-debug/JanSetu" target="_blank">Repository →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <h2 class="section-title">Experience</h2>
+        <p class="section-lead">Selected internship work from my resume.</p>
+        <div class="card experience">
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="date">Jul 2026 · Virtual Internship</div>
+              <h3>Data Science Intern — SkillCraft Technology</h3>
+              <p>Completed four end-to-end projects covering visualization, data cleaning, EDA, machine learning, and BI
+                reporting.</p>
+              <p>Worked with Titanic and Netflix datasets, built a Decision Tree classifier on the UCI Bank Marketing
+                dataset, and designed a Power BI traffic-accident dashboard.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">Jun 2026 – Jul 2026 · Virtual Internship</div>
+              <h3>Cybersecurity Intern — Thiranex EduTech LLP</h3>
+              <p>Delivered projects spanning password security, vulnerability assessment, phishing detection, and secure
+                authentication.</p>
+              <p>Built a password-strength analyzer, Nmap-based vulnerability scanner, ML phishing detector, and secure
+                Flask login system.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="date">Apr 2026 – May 2026 · Virtual Internship</div>
+              <h3>Python Intern — upSkill Campus</h3>
+              <p>Built a desktop File Organizer with recursive scanning, dry-run preview mode, custom rules, saved
+                preferences, logging, and error handling.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-lead">The tools I currently use and the areas I'm actively strengthening.</p>
+        <div class="skills-wrap">
+          <div class="card skill">
+            <h3>Languages</h3>
+            <div class="skill-list"><span>Python</span><span>SQL</span><span>Java</span></div>
+          </div>
+          <div class="card skill">
+            <h3>Data & Analytics</h3>
+            <div class="skill-list">
+              <span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>EDA</span><span>Power
+                BI</span>
+            </div>
+          </div>
+          <div class="card skill">
+            <h3>Machine Learning</h3>
+            <div class="skill-list"><span>Scikit-learn</span><span>Decision Tree</span><span>Logistic
+                Regression</span><span>Naive Bayes</span><span>Random Forest</span><span>TF-IDF</span></div>
+          </div>
+          <div class="card skill">
+            <h3>Backend & Tools</h3>
+            <div class="skill-list"><span>FastAPI</span><span>Flask</span><span>REST
+                APIs</span><span>SQLAlchemy</span><span>MongoDB</span><span>Git</span><span>GitHub</span><span>VS
+                Code</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <h2 class="section-title">Certifications & achievements</h2>
+        <div class="grid-3">
+          <div class="card cert">
+            <h3>Deloitte Australia</h3>
+            <p>Data Analytics Job Simulation</p>
+          </div>
+          <div class="card cert">
+            <h3>Tata</h3>
+            <p>Cybersecurity Analyst Job Simulation</p>
+          </div>
+          <div class="card cert">
+            <h3>MongoDB</h3>
+            <p>Basics for Students</p>
+          </div>
+          <div class="card cert">
+            <h3>OPSWAT Academy</h3>
+            <p>Introduction to CIP</p>
+          </div>
+          <div class="card cert">
+            <h3>Veloxi Vision EduTech</h3>
+            <p>Data Analytics Course</p>
+          </div>
+          <div class="card cert">
+            <h3>ISL Hackathon</h3>
+            <p>3rd Prize</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <div class="card contact">
+          <div>
+            <h2 class="section-title">Let’s build something useful.</h2>
+            <p class="section-lead" style="margin-bottom:0">Open to conversations around internships, entry-level
+              opportunities, projects, and collaboration.</p>
+          </div>
+          <div class="cta">
+            <a class="btn primary" href="mailto:vinayakdasarla30@gmail.com">Email me</a>
+            <a class="btn" href="https://www.linkedin.com/in/vinayakdasarla/" target="_blank">LinkedIn</a>
+            <a class="btn" href="https://github.com/vinayak-30-debug" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Dasarla Vinayak.
+    </div>
+  </footer>
+</body>
+
+</html>
